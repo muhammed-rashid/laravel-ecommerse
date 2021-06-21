@@ -12,6 +12,6 @@ class product_features extends Model
     use SoftDeletes;
 
     public function get_val(){
-        return $this->hasOne('App\Models\atributes','id','atribute_id');
+        return $this->hasOne('App\Models\atributes','id','atribute_id')->withTrashed();
     }
 }

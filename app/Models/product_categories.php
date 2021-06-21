@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -17,5 +17,9 @@ class product_categories extends Model
     public function get_product(){
         return $this->hasOne('App\Models\product','id','product_id');
     }
+
+ 
+
+   
    
 }

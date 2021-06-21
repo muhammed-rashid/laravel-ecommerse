@@ -18,7 +18,7 @@ class order extends Model
     }
 
     public function get_order_adress(){
-        return $this->hasOne('App\Models\adress','id','address_id');
+        return $this->hasOne('App\Models\adress','id','address_id')->withTrashed();
     }
     //get product direct frome orders to avoid one relation
 

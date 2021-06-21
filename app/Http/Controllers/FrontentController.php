@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 
 use App\Models\banner;
 use App\Models\product;
+use App\Models\brand;
+
 
 use App\Models\ads;
 use App\Models\offers;
@@ -19,6 +21,7 @@ class FrontentController extends Controller
 {
     public function index()
     {
+      //return product::with('cart')->get();
         $banner = banner::All();
         $ads = ads::take(3)->get();
         $latest_product = product::with('get_images')->orderBy('id','desc')->get();
@@ -109,8 +112,7 @@ class FrontentController extends Controller
        $review_sum = round($review_sum);
 
     
-     
-
+///sreturn $product;
 
        
         return view('frontent.single_product', ['product' => $product,'ordered'=>$ordered,'rating'=>$review_sum]);

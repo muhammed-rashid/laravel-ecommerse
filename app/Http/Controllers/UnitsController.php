@@ -9,6 +9,7 @@ class UnitsController extends Controller
 {
     public function units()
     {
+       
         $units = Units::all();
         return view('admin-area.units', ['units' => $units]);
     }

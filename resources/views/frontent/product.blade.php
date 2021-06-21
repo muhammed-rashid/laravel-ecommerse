@@ -4,7 +4,7 @@
                             
                        
                         
-                        <div class="col-lg-4 col-sm-6 product {{$product->categories[0]->category}}">
+                        <div class="col-lg-4 col-sm-6 product ">
                             <div class="product-item ">
                                 <div class="pi-pic">
                                     <img src="{{asset('img/products/'.$product->get_images[0]->image_name.'')}}" alt="" >

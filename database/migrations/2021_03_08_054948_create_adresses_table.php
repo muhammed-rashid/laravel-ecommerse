@@ -22,6 +22,7 @@ class CreateAdressesTable extends Migration
             $table->string('city');
             $table->string('post_office');
             $table->integer('pin_code');
+            $table->softDeletes('deleted_at');
             $table->timestamps();
         });
     }

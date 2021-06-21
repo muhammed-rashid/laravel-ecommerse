@@ -25,6 +25,7 @@
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-8 order-2 order-lg-1 produts-sidebar-filter">
                 <div class="filter-widget">
+                @if(count(get_all_categories())>0)
                     <h4 class="fw-title">Categories</h4>
              
                         @foreach (get_all_categories() as $category)
@@ -32,7 +33,7 @@
                         <label for="category">{{$category->category}}</label><br>
                         @endforeach
                      
-                      
+                @endif  
                   
                 </div>
                 <div class="filter-widget">
@@ -73,7 +74,7 @@
                 </div>
                 <div class="product-list">
                     <div class="row product_list append_pro">
-                        @include('frontent.product')
+                    @include('frontent.product')
                       
                         
                         

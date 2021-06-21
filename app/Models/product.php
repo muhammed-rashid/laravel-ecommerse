@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Units;
+use App\Models\cart;
+use App\Models\brand;
 use Carbon\Carbon;
 use phpDocumentor\Reflection\Types\This;
 
@@ -81,4 +83,28 @@ class product extends Model
     public function get_reviews(){
         return $this->hasMany('App\Models\review','product_id','id');
     }
+    public function brandv(){
+        return $this->belongsTo(brand::class);
+    }
+
+    public function offers_all(){
+        return $this->hasMany(offers::class);
+    }
+   public function carts(){
+       return $this->hasMany(cart::class);
+   }
+
+    static function boot(){
+        parent::boot();
+        product::deleted(function($product){
+
+            
+            $product->carts()->delete();
+
+            $product->offers_all()->delete();
+          
+        });
+    }
+
+  
 }

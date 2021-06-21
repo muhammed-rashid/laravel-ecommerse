@@ -20,6 +20,7 @@ class CreateCartsTable extends Migration
             $table->integer('quantity');
             $table->foreign("product_id")->references("id")->on("products")->onDelete("cascade");
             $table->foreign("user_id")->references("id")->on("Users")->onDelete("cascade");
+            $table->softDeletes('deleted_at');
             $table->timestamps();
         });
     }

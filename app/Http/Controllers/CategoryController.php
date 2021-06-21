@@ -105,12 +105,21 @@ class CategoryController extends Controller
     public function deleteCategory($id)
     {
         $Users = Category::find($id);
+
+       
+        
+
         $deleted = $Users->delete($id);
         if ($Users->icon != "") {
             $image_path = public_path("img/category/{$Users->icon}");
             unlink($image_path);
         }
         if ($deleted) {
+            //delete the related product
+
+
+
+
             return response()->json([
                 'status' => 'success',
                 'message' => 'category is deleted successfully'

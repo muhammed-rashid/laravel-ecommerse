@@ -1,5 +1,5 @@
 
-{{$rating}}
+
 
 @extends('layouts.frontent-layout')
 
@@ -34,7 +34,9 @@
                     <div class="col-lg-6">
                         <div class="product-details">
                             <div class="pd-title">
-                                <span>{{$product->categories[0]->category}}</span>
+                         @if(count($product->categories))
+                                <span>{{$product->categories[0]->category}}</span> 
+                                @endif
                                 <h3>{{$product->product_name}}</h3>
                                 <a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
                             </div>
@@ -63,11 +65,9 @@
 
                             </div>
                             <ul class="pd-tags">
-                                @if(count($product->categories)>0)
-                                <li><span>CATEGORIES</span>:@foreach ($product->categories as $item)
-                                    {{$item->category}}
-                                @endforeach</li>
-                                @endif
+                               @if(count($product->categories)>0)
+                                <li><span>CATEGORIES</span>:$product->categories[0]->category_name</li>
+                               @endif
                                 <li><span>TAGS</span>:@if($product->get_tags_name) 
                                     @foreach ($product->get_tags_name as $item)
                                     <span style="font-size: 12px">{{$item->tag_name}}</span>

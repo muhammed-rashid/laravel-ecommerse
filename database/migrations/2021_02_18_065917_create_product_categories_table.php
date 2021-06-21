@@ -19,7 +19,7 @@ class CreateProductCategoriesTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->foreign("product_id")->references("id")->on("products")->onDelete("cascade");
             $table->foreign("category_id")->references("id")->on("categories")->onDelete("cascade");
-            $table->timestamp('deleted_at')->nullable();
+            $table->softDeletes('deleted_at');
             $table->timestamps();
         });
     }

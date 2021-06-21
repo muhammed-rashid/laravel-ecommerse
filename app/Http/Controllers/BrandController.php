@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\brand;
+use App\Models\product;
+use App\Models\product_categories;
 use GrahamCampbell\ResultType\Success;
 
 class BrandController extends Controller
 {
     public function index()
     {
+      
+       
         $Brands = brand::all();
         return view('admin-area.brands', ['brands' => $Brands]);
     }
@@ -111,6 +115,7 @@ class BrandController extends Controller
             unlink($image_path);
         }
         if ($deleted) {
+          
             return response()->json([
                 'status' => 'success',
                 'message' => 'category is deleted successfully'
